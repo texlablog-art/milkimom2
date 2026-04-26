@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>মিল্কিমম — মায়ের স্তন্যের জন্য বিশেষ যত্ন</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={theme:{extend:{fontFamily:{bn:["Hind Siliguri","Noto Sans Bengali","sans-serif"]},colors:{
+n:{50:"#fdf2f4",100:"#fce7eb",200:"#f9d0d9",300:"#f4a9b8",400:"#ec7a92",500:"#df4f6f",600:"#c93257",700:"#a92345",800:"#8f1f3c",900:"#7a1d37"},
+gd:{50:"#fdf8ef",100:"#faefd8",200:"#f4ddb0",300:"#ecc67d",400:"#e2ab4c",500:"#d49530",600:"#bc7b25",700:"#9a6121",800:"#7d4e20",900:"#67411e"},
+cream:"#fefbf7",warm:"#faf5ee"
+}}}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Hind Siliguri","Noto Sans Bengali",sans-serif;background:#fefbf7;overflow-x:hidden}
+
+/* Preloader */
+#pre{position:fixed;inset:0;z-index:10000;background:#fefbf7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .7s,transform .7s}
+#pre.gone{opacity:0;transform:scale(1.04);pointer-events:none}
+.pr-spin{width:44px;height:44px;border:2.5px solid #f9d0d9;border-top-color:#a92345;border-radius:50%;animation:sp .65s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.pr-bar{width:180px;height:2px;background:#f9d0d9;border-radius:2px;overflow:hidden}
+.pr-fill{height:100%;width:0;background:linear-gradient(90deg,#a92345,#c93257);border-radius:2px;animation:bf 1s .15s ease forwards}
+@keyframes bf{to{width:100%}}
+
+/* Cursor */
+.cd,.cr{position:fixed;pointer-events:none;z-index:9999;border-radius:50%}
+.cd{width:5px;height:5px;background:#a92345;transform:translate(-50%,-50%);mix-blend-mode:multiply}
+.cr{width:32px;height:32px;border:1px solid rgba(169,35,69,.3);transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s}
+.cr.h{width:48px;height:48px;border-color:rgba(169,35,69,.5)}
+@media(max-width:1024px){.cd,.cr{display:none}}
+
+/* Keyframes */
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes mrph{0%,100%{border-radius:58% 42% 32% 68%/58% 32% 68% 42%}50%{border-radius:32% 68% 58% 42%/42% 58% 32% 68%}}
+@keyframes gx{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes shm{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes pg{0%,100%{box-shadow:0 0 0 0 rgba(169,35,69,.2)}50%{box-shadow:0 0 0 8px rgba(169,35,69,0)}}
+@keyframes rp{to{transform:scale(4);opacity:0}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+.af{animation:fl 5s ease-in-out infinite}
+.af2{animation:fl 7s ease-in-out infinite}
+.am{animation:mrph 12s ease-in-out infinite}
+.amq{animation:mq 40s linear infinite}
+.apg{animation:pg 2.5s infinite}
+.shm-t{background:linear-gradient(90deg,#a92345,#ec7a92,#a92345,#f4a9b8,#a92345);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shm 4s linear infinite}
+.gd-t{background:linear-gradient(135deg,#a92345,#d49530);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* Glass */
+.gl{background:rgba(254,251,247,.78);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border:1px solid rgba(255,255,255,.6)}
+.gld{background:rgba(10,3,6,.5);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.06)}
+
+/* 3D */
+.c3d{perspective:900px}
+.c3i{transition:transform .5s cubic-bezier(.23,1,.32,1),box-shadow .5s ease;transform-style:preserve-3d;will-change:transform}
+.c3d:hover .c3img{transform:scale(1.05)}
+.c3img{transition:transform .6s cubic-bezier(.23,1,.32,1)}
+
+/* Buttons */
+.bp{position:relative;overflow:hidden;background:linear-gradient(135deg,#a92345,#8f1f3c);color:#fff;transition:transform .3s cubic-bezier(.23,1,.32,1),box-shadow .3s}
+.bp:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px rgba(169,35,69,.4)}
+.bp .rpl{position:absolute;border-radius:50%;background:rgba(255,255,255,.2);animation:rp .55s linear;pointer-events:none}
+.bg{border:1.5px solid rgba(169,35,69,.25);color:#8f1f3c;position:relative;overflow:hidden;transition:all .3s cubic-bezier(.23,1,.32,1)}
+.bg::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#a92345,#8f1f3c);transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.23,1,.32,1);z-index:0}
+.bg:hover::before{transform:scaleX(1);transform-origin:left}
+.bg:hover{color:#fff;border-color:transparent;transform:translateY(-2px)}
+.bg>*{position:relative;z-index:1}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .65s cubic-bezier(.23,1,.32,1),transform .65s cubic-bezier(.23,1,.32,1)}
+.rvl{opacity:0;transform:translateX(-40px);transition:opacity .65s ease,transform .65s ease}
+.rvr{opacity:0;transform:translateX(40px);transition:opacity .65s ease,transform .65s ease}
+.rvs{opacity:0;transform:scale(.93);transition:opacity .65s ease,transform .65s ease}
+.vis{opacity:1!important;transform:none!important}
+
+/* Image reveal */
+.imgrv{position:relative;overflow:hidden}
+.imgrv::after{content:'';position:absolute;inset:0;background:#fefbf7;transform:scaleX(1);transform-origin:left;transition:transform .85s cubic-bezier(.77,0,.175,1);z-index:2}
+.imgrv.vis::after{transform:scaleX(0);transform-origin:right}
+
+/* FAQ */
+.fb{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.23,1,.32,1)}
+.fb.op{max-height:260px}
+
+/* Mobile menu */
+.mm{transform:translateX(100%);transition:transform .4s cubic-bezier(.23,1,.32,1)}
+.mm.op{transform:translateX(0)}
+
+/* Toast */
+.tst{transform:translateY(70px) scale(.95);opacity:0;transition:all .4s cubic-bezier(.23,1,.32,1)}
+.tst.sh{transform:translateY(0) scale(1);opacity:1}
+
+/* Sticky */
+#stk{transform:translateY(100px);opacity:0;transition:all .45s cubic-bezier(.23,1,.32,1)}
+#stk.sh{transform:translateY(0);opacity:1}
+
+/* Progress bar */
+.pfill{background:linear-gradient(90deg,#a92345,#d49530);transition:width 1.2s cubic-bezier(.23,1,.32,1)}
+
+/* Glow border */
+.glow{position:relative}
+.glow::before{content:'';position:absolute;inset:-2px;border-radius:inherit;padding:2px;background:linear-gradient(135deg,#a92345,#d49530,#c93257,#e2ab4c);background-size:300% 300%;animation:gx 5s ease infinite;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:1}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#f4a9b8,#a92345);border-radius:10px}
+
+/* Divider line */
+.dv{height:1px;background:linear-gradient(90deg,transparent,rgba(169,35,69,.1),transparent)}
+
+/* Section bg */
+.hero-bg{background:linear-gradient(165deg,#fefbf7 0%,#fdf2f4 35%,#fdf8f0 65%,#fefbf7 100%);background-size:300% 300%;animation:gx 18s ease infinite}
+
+/* Stock bar */
+.stock-bar{background:linear-gradient(90deg,#a92345,#c93257,#ec7a92);border-radius:4px;height:6px;position:relative;overflow:hidden}
+.stock-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.3) 50%,transparent 100%);animation:shm 2s linear infinite}
+</style>
+</head>
+<body class="font-bn text-stone-700 antialiased">
+
+<!-- Preloader -->
+<div id="pre"><div class="pr-spin"></div><div class="pr-bar"><div class="pr-fill"></div></div></div>
+
+<!-- Cursor -->
+<div class="cd" id="cD"></div>
+<div class="cr" id="cR"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="gl fixed top-0 left-0 right-0 z-50 transition-shadow duration-400" id="nav">
+<div class="max-w-[1200px] mx-auto px-5 h-[68px] flex items-center justify-between">
+  <a href="#" class="flex items-center gap-2.5" data-h>
+    <img src="https://i.ibb.co.com/Pv40vxkw/558834868-122119167842987642-453327520897765856-n.jpg" alt="" class="h-10 w-10 rounded-full object-cover ring-2 ring-n-100"/>
+    <div class="hidden sm:block"><p class="text-[14px] font-bold text-stone-800 leading-none">মিল্কিমম</p><p class="text-[8px] font-semibold text-n-600 tracking-[.12em] uppercase mt-0.5">Premium Mother Care</p></div>
+  </a>
+  <div class="hidden md:flex items-center gap-6">
+    <a href="#how" class="text-[12.5px] font-medium text-stone-500 hover:text-n-700 transition-colors relative group" data-h>কিভাবে কাজ করে<span class="absolute -bottom-1 left-0 w-0 h-px bg-n-600 transition-all group-hover:w-full"></span></a>
+    <a href="#benefits" class="text-[12.5px] font-medium text-stone-500 hover:text-n-700 transition-colors relative group" data-h>উপকারিতা<span class="absolute -bottom-1 left-0 w-0 h-px bg-n-600 transition-all group-hover:w-full"></span></a>
+    <a href="#reviews" class="text-[12.5px] font-medium text-stone-500 hover:text-n-700 transition-colors relative group" data-h>রিভিউ<span class="absolute -bottom-1 left-0 w-0 h-px bg-n-600 transition-all group-hover:w-full"></span></a>
+    <a href="#faq" class="text-[12.5px] font-medium text-stone-500 hover:text-n-700 transition-colors relative group" data-h>প্রশ্নোত্তর<span class="absolute -bottom-1 left-0 w-0 h-px bg-n-600 transition-all group-hover:w-full"></span></a>
+  </div>
+  <a href="#order" class="bp text-[12px] font-semibold px-5 py-2.5 rounded-xl inline-flex items-center gap-2" data-h>অর্ডার করুন <span class="iconify text-[14px]" data-icon="mdi:arrow-right"></span></a>
+  <button class="md:hidden p-2" id="mobO" aria-label="Menu"><span class="iconify text-stone-700 text-xl" data-icon="mdi:menu"></span></button>
+</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mm fixed inset-0 z-[60] bg-cream" id="mobM">
+<div class="flex items-center justify-between px-5 h-[68px]">
+  <img src="https://i.ibb.co.com/Pv40vxkw/558834868-122119167842987642-453327520897765856-n.jpg" alt="" class="h-9 w-9 rounded-full object-cover ring-2 ring-n-100"/>
+  <button class="p-2" id="mobC" aria-label="Close"><span class="iconify text-stone-700 text-xl" data-icon="mdi:close"></span></button>
+</div>
+<div class="flex flex-col px-5 pt-6 gap-1">
+  <a href="#how" class="ml text-[16px] font-medium text-stone-600 py-3.5 border-b border-stone-100/80 hover:text-n-700">কিভাবে কাজ করে</a>
+  <a href="#benefits" class="ml text-[16px] font-medium text-stone-600 py-3.5 border-b border-stone-100/80 hover:text-n-700">উপকারিতা</a>
+  <a href="#reviews" class="ml text-[16px] font-medium text-stone-600 py-3.5 border-b border-stone-100/80 hover:text-n-700">রিভিউ</a>
+  <a href="#faq" class="ml text-[16px] font-medium text-stone-600 py-3.5 border-b border-stone-100/80 hover:text-n-700">প্রশ্নোত্তর</a>
+  <a href="#order" class="bp text-center text-[16px] font-semibold px-6 py-4 rounded-xl mt-5">অর্ডার করুন</a>
+</div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero-bg relative min-h-screen flex items-center overflow-hidden pt-[68px]">
+<div class="absolute top-20 right-[5%] w-[380px] h-[380px] bg-n-100/30 am blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-10 left-[3%] w-[300px] h-[300px] bg-gd-100/25 am blur-3xl pointer-events-none" style="animation-delay:-5s"></div>
+<canvas id="hCv" class="absolute inset-0 pointer-events-none z-[1]"></canvas>
+
+<div class="max-w-[1200px] mx-auto px-5 relative z-10 w-full py-14 md:py-20">
+<div class="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-14 items-center">
+  <div class="max-w-[520px]">
+    <!-- Urgency Badge -->
+    <div class="rv inline-flex items-center gap-2 bg-white/80 border border-n-100 text-n-700 text-[10px] font-bold tracking-[.15em] uppercase px-3.5 py-1.5 rounded-full mb-6" style="transition-delay:.1s">
+      <span class="w-[5px] h-[5px] bg-red-500 rounded-full" style="animation:pulse 1.5s infinite"></span>
+      সীমিত স্টক — শুধুমাত্র ৪৭টি প্যাকেট বাকি
+    </div>
+
+    <h1 class="rv text-[2.4rem] md:text-[3.2rem] lg:text-[3.5rem] font-bold leading-[1.07] tracking-[-.025em] text-stone-900 mb-5" style="transition-delay:.2s">
+      আপনার শিশুর জন্য<br/>
+      <span class="shm-t">পর্যাপ্ত মায়ের দুধ</span><br/>
+      এখনই সম্ভব
+    </h1>
+
+    <p class="rv text-stone-500 leading-[1.8] text-[14.5px] mb-4 max-w-[440px]" style="transition-delay:.3s">
+      স্তন্যের অভাবে চিন্তিত? মিল্কিমম হলো সম্পূর্ণ প্রাকৃতিক ফর্মুলা যা মায়ের দুধের পরিমাণ <strong class="text-stone-700">৩ গুণ বৃদ্ধি</strong> করে। ক্লিনিক্যালি প্রমাণিত, ডাক্তারদের রেকমেন্ডেড।
+    </p>
+
+    <!-- Trust Indicators -->
+    <div class="rv flex flex-wrap items-center gap-4 mb-7" style="transition-delay:.35s">
+      <span class="flex items-center gap-1.5 text-[11px] font-semibold text-stone-600"><span class="iconify text-n-600 text-sm" data-icon="mdi:shield-check"></span>FDA অনুমোদিত</span>
+      <span class="flex items-center gap-1.5 text-[11px] font-semibold text-stone-600"><span class="iconify text-n-600 text-sm" data-icon="mdi:flask-outline"></span>ক্লিনিক্যালি টেস্টেড</span>
+      <span class="flex items-center gap-1.5 text-[11px] font-semibold text-stone-600"><span class="iconify text-n-600 text-sm" data-icon="mdi:leaf"></span>১০০% হার্বাল</span>
+    </div>
+
+    <!-- Price Anchor -->
+    <div class="rv bg-white rounded-2xl p-5 border border-stone-100 shadow-sm mb-7 max-w-[400px]" style="transition-delay:.4s">
+      <div class="flex items-end gap-3 mb-2">
+        <span class="text-[2rem] font-bold text-n-700 leading-none">৳১,৪৯৯</span>
+        <span class="text-[15px] text-stone-400 line-through mb-0.5">৳২,৫০০</span>
+        <span class="text-[10px] font-bold text-white bg-n-600 px-2 py-0.5 rounded-md mb-1">৪০% ছাড়</span>
+      </div>
+      <p class="text-[11px] text-stone-400 mb-3">১ কোর্স (৩০ ক্যাপসুল) — ৩০ দিনের জন্য</p>
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-[10px] text-stone-500 font-medium">স্টক:</span>
+        <div class="flex-1 h-[6px] bg-stone-100 rounded-full overflow-hidden"><div class="stock-bar" style="width:23%"></div></div>
+        <span class="text-[10px] font-bold text-red-500">২৩% বাকি</span>
+      </div>
+      <a href="#order" class="bp w-full text-center font-semibold py-3.5 rounded-xl inline-flex items-center justify-center gap-2 text-[14px]" data-h>
+        এখনই অর্ডার করুন <span class="iconify text-[16px]" data-icon="mdi:arrow-right"></span>
+      </a>
+      <p class="text-[10px] text-stone-400 text-center mt-2.5 flex items-center justify-center gap-1"><span class="iconify text-emerald-500" data-icon="mdi:lock"></span>সুরক্ষিত পেমেন্ট • ক্যাশ অন ডেলিভারি</p>
+    </div>
+
+    <!-- Social proof mini -->
+    <div class="rv flex items-center gap-4" style="transition-delay:.45s">
+      <div class="flex -space-x-2">
+        <img src="https://i.ibb.co.com/Pv40vxkw/558834868-122119167842987642-453327520897765856-n.jpg" class="w-8 h-8 rounded-full ring-2 ring-cream object-cover" alt=""/>
+        <img src="https://i.ibb.co.com/Pv40vxkw/558834868-122119167842987642-453327520897765856-n.jpg" class="w-8 h-8 rounded-full ring-2 ring-cream object-cover" alt=""/>
+        <img src="https://i.ibb.co.com/Pv40vxkw/558834868-122119167842987642-453327520897765856-n.jpg" class="w-8 h-8 rounded-full ring-2 ring-cream object-cover" alt=""/>
+        <div class="w-8 h-8 rounded-full ring-2 ring-cream bg-n-600 text-white text-[8px] font-bold flex items-center justify-center">১২K+</div>
+      </div>
+      <div>
+        <div class="flex items-center gap-0.5"><span class="iconify text-amber-400 text-[12px]" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-[12px]" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-[12px]" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-[12px]" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-[12px]" data-icon="mdi:star-half-full"></span><span class="text-[11px] font-semibold text-stone-600 ml-1">৪.৭</span></div>
+        <p class="text-[10px] text-stone-400">৩,৮০০+ মা ইতিমধ্যে ব্যবহার করছেন</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="relative rvs" style="transition-delay:.3s">
+    <div class="perspective-[1000px]">
+      <div class="relative" id="hImg">
+        <div class="af2">
+          <img src="https://i.ibb.co.com/Pv40vxkw/558834868-122119167842987642-453327520897765856-n.jpg" alt="মিল্কিমম" class="w-full h-[400px] md:h-[520px] object-cover rounded-3xl shadow-[0_30px_80px_-20px_rgba(169,35,69,.15)]"/>
+          <div class="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/10 via-transparent to-white/5"></div>
+        </div>
+        <!-- Result badge -->
+        <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-2xl px-6 py-3.5 shadow-xl border border-stone-100/60 flex items-center gap-4 z-10">
+          <div class="text-center"><p class="text-[18px] font-bold text-n-700">৩×</p><p class="text-[9px] text-stone-400 font-medium">দুধ বৃদ্ধি</p></div>
+          <div class="w-px h-8 bg-stone-100"></div>
+          <div class="text-center"><p class="text-[18px] font-bold text-n-700">৭ দিন</p><p class="text-[9px] text-stone-400 font-medium">মধ্যে ফলাফল</p></div>
+          <div class="w-px h-8 bg-stone-100"></div>
+          <div class="text-center"><p class="text-[18px] font-bold text-n-700">০%</p><p class="text-[9px] text-stone-400 font-medium">সাইড এফেক্ট</p></div>
+        </div>
+        <!-- Doctor badge -->
+        <div class="absolute -top-3 -right-3 md:-right-6 gl rounded-2xl p-3 shadow-lg af z-10" style="animation-delay:1.5s">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-n-50 flex items-center justify-center"><span class="iconify text-n-600 text-lg" data-icon="mdi:stethoscope"></span></div>
+            <div><p class="text-[10px] font-bold text-stone-700">ডাক্তারদের পছন্দ</p><p class="text-[8px] text-stone-400">৫০০+ ডাক্তার রেকমেন্ড</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute -z-10 -top-5 -right-5 w-full h-full rounded-[36px] bg-gradient-to-br from-n-100/20 to-gd-100/15 blur-2xl"></div>
+  </div>
+</div>
+</div>
+</section>
+
+<div class="dv"></div>
+
+<!-- ═══ TRUST BAR ═══ -->
+<section class="py-4 bg-white/60 overflow-hidden">
+<div class="amq flex items-center gap-7 whitespace-nowrap" style="width:max-content">
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:check-decagram"></span>GMP সার্টিফাইড</span>
+  <span class="text-n-100">·</span>
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:certificate-outline"></span>আইএসও ২২০০০</span>
+  <span class="text-n-100">·</span>
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:shield-check"></span>হালাল সার্টিফাইড</span>
+  <span class="text-n-100">·</span>
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:rabbit-variant"></span>ক্রুয়েলটি ফ্রি</span>
+  <span class="text-n-100">·</span>
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:leaf"></span>১০০% প্রাকৃতিক</span>
+  <span class="text-n-100">·</span>
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:flask-outline"></span>ক্লিনিক্যালি প্রুভন</span>
+  <span class="text-n-100">·</span>
+  <!-- dup -->
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:check-decagram"></span>GMP সার্টিফাইড</span>
+  <span class="text-n-100">·</span>
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:certificate-outline"></span>আইএসও ২২০০০</span>
+  <span class="text-n-100">·</span>
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:shield-check"></span>হালাল সার্টিফাইড</span>
+  <span class="text-n-100">·</span>
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:rabbit-variant"></span>ক্রুয়েলটি ফ্রি</span>
+  <span class="text-n-100">·</span>
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:leaf"></span>১০০% প্রাকৃতিক</span>
+  <span class="text-n-100">·</span>
+  <span class="text-stone-300 font-semibold text-[9px] tracking-[.2em] uppercase flex items-center gap-1.5"><span class="iconify text-n-300 text-xs" data-icon="mdi:flask-outline"></span>ক্লিনিক্যালি প্রুভন</span>
+</div>
+</section>
+<div class="dv"></div>
+
+<!-- ═══ PROBLEM ═══ -->
+<section class="py-16 md:py-24 bg-cream">
+<div class="max-w-[1200px] mx-auto px-5">
+  <div class="text-center max-w-[560px] mx-auto mb-12">
+    <span class="rv text-[10px] font-bold tracking-[.2em] uppercase text-n-600 mb-3 block">আপনি কি এই সমস্যায় ভুগছেন?</span>
+    <h2 class="rv text-[1.7rem] md:text-[2.2rem] font-bold tracking-[-.01em] text-stone-900 leading-tight" style="transition-delay:.1s">শিশুকে যথেষ্ট দুধ দিতে পারছেন না?<br/><span class="text-n-500">একা আপনি নন।</span></h2>
+  </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="rv bg-white rounded-2xl p-6 border border-stone-100/60 hover:border-red-100 hover:shadow-md transition-all" style="transition-delay:.05s">
+      <div class="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center mb-4"><span class="iconify text-red-400 text-xl" data-icon="mdi:emoticon-sad-outline"></span></div>
+      <h4 class="font-bold text-stone-800 text-[14px] mb-1.5">দুধ কম আসে</h4>
+      <p class="text-[12.5px] text-stone-500 leading-relaxed">শিশু ক্ষুধার্ত থাকে, কাঁদে, আর আপনি অসহায় অনুভব করেন।</p>
+    </div>
+    <div class="rv bg-white rounded-2xl p-6 border border-stone-100/60 hover:border-red-100 hover:shadow-md transition-all" style="transition-delay:.1s">
+      <div class="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center mb-4"><span class="iconify text-red-400 text-xl" data-icon="mdi:baby-carriage"></span></div>
+      <h4 class="font-bold text-stone-800 text-[14px] mb-1.5">শিশুর ওজন বাড়ে না</h4>
+      <p class="text-[12.5px] text-stone-500 leading-relaxed">পর্যাপ্ত পুষ্টি না পেলে শিশুর স্বাভাবিক বৃদ্ধি বাধাগ্রস্ত হয়।</p>
+    </div>
+    <div class="rv bg-white rounded-2xl p-6 border border-stone-100/60 hover:border-red-100 hover:shadow-md transition-all" style="transition-delay:.15s">
+      <div class="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center mb-4"><span class="iconify text-red-400 text-xl" data-icon="mdi:heart-broken"></span></div>
+      <h4 class="font-bold text-stone-800 text-[14px] mb-1.5">মানসিক চাপ</h4>
+      <p class="text-[12.5px] text-stone-500 leading-relaxed">দুধ না আসার দুশ্চিন্তায় মায়ের মানসিক স্বাস্থ্য ক্ষতিগ্রস্ত হয়।</p>
+    </div>
+    <div class="rv bg-white rounded-2xl p-6 border border-stone-100/60 hover:border-red-100 hover:shadow-md transition-all" style="transition-delay:.2s">
+      <div class="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center mb-4"><span class="iconify text-red-400 text-xl" data-icon="mdi:pill"></span></div>
+      <h4 class="font-bold text-stone-800 text-[14px] mb-1.5">ক্ষতিকর ওষুধ খাচ্ছেন?</h4>
+      <p class="text-[12.5px] text-stone-500 leading-relaxed">অনেক মা বিনা পরামর্শে ক্ষতিকর সাপ্লিমেন্ট খাচ্ছেন।</p>
+    </div>
+  </div>
+  <div class="rv text-center mt-10" style="transition-delay:.25s">
+    <p class="text-[13px] text-stone-500 mb-3">গবেষণায় দেখা গেছে, বাংলাদেশে <strong class="text-stone-700">৬০% মা</strong> স্তন্যের অভাবে ভুগেন</p>
+    <div class="inline-flex items-center gap-2 bg-n-50 text-n-700 text-[12px] font-semibold px-4 py-2 rounded-lg"><span class="iconify" data-icon="mdi:information-outline"></span>তবে সঠিক সমাধান আছে →</div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section id="how" class="py-16 md:py-24 bg-white">
+<div class="max-w-[1200px] mx-auto px-5">
+  <div class="grid lg:grid-cols-2 gap-14 items-center">
+    <div class="rvl">
+      <div class="relative imgrv rounded-3xl overflow-hidden">
+        <img src="https://i.ibb.co.com/Pv40vxkw/558834868-122119167842987642-453327520897765856-n.jpg" alt="" class="w-full h-[420px] md:h-[500px] object-cover"/>
+      </div>
+      <!-- Float card -->
+      <div class="absolute -bottom-5 right-2 md:right-8 bg-white rounded-2xl p-4 shadow-xl border border-stone-100/60 af z-10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center"><span class="iconify text-emerald-500 text-lg" data-icon="mdi:trending-up"></span></div>
+          <div><p class="text-[11px] font-bold text-stone-700">গড়ে ৩ গুণ বৃদ্ধি</p><p class="text-[9px] text-stone-400">প্রথম ৭ দিনে</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="rvr">
+      <span class="text-[10px] font-bold tracking-[.2em] uppercase text-n-600 mb-3 block">কিভাবে কাজ করে</span>
+      <h2 class="text-[1.7rem] md:text-[2.2rem] font-bold tracking-[-.01em] text-stone-900 leading-tight mb-6">বিজ্ঞানভিত্তিক <span class="gd-t">ফর্মুলা</span> যা কাজ করে</h2>
+      <div class="space-y-5 mb-8">
+        <div class="flex gap-4">
+          <div class="w-8 h-8 rounded-lg bg-n-50 flex items-center justify-center flex-shrink-0 mt-0.5 text-n-700 text-[13px] font-bold">১</div>
+          <div><h4 class="font-bold text-stone-800 text-[14px] mb-1">প্রোল্যাকটিন হরমোন সক্রিয় করে</h4><p class="text-[12.5px] text-stone-500 leading-relaxed">শাতাবলতা, মসুর ডাল ও ফেনুগ্রিক প্রাকৃতিকভাবে প্রোল্যাকটিন হরমোন বাড়ায় যা দুধ উৎপাদনের মূল চালিকাশক্তি।</p></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-8 h-8 rounded-lg bg-n-50 flex items-center justify-center flex-shrink-0 mt-0.5 text-n-700 text-[13px] font-bold">২</div>
+          <div><h4 class="font-bold text-stone-800 text-[14px] mb-1">পুষ্টি সঞ্চয় বাড়ায়</h4><p class="text-[12.5px] text-stone-500 leading-relaxed">আয়রন, ফলিক অ্যাসিড, ভিটামিন B12 মায়ের শরীরে দুধ তৈরির জন্য প্রয়োজনীয় পুষ্টি পৌঁছায়।</p></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-8 h-8 rounded-lg bg-n-50 flex items-center justify-center flex-shrink-0 mt-0.5 text-n-700 text-[13px] font-bold">৩</div>
+          <div><h4 class="font-bold text-stone-800 text-[14px] mb-1">মানসিক চাপ কমায়</h4><p class="text-[12.5px] text-stone-500 leading-relaxed">অ্যাশওয়াগন্ধা ও শতাবরি মায়ের মানসিক শান্তি বজায় রাখে, যা দুধ উৎপাদনে সাহায্য করে।</p></div>
+        </div>
+      </div>
+      <a href="#order" class="bp font-semibold px-7 py-3.5 rounded-xl inline-flex items-center gap-2 text-[14px]" data-h>আমি চেষ্টা করতে চাই <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ INGREDIENTS ═══ -->
+<section class="py-16 md:py-24 bg-cream">
+<div class="max-w-[1200px] mx-auto px-5">
+  <div class="text-center max-w-[560px] mx-auto mb-12">
+    <span class="rv text-[10px] font-bold tracking-[.2em] uppercase text-n-600 mb-3 block">প্রাকৃতিক উপাদান</span>
+    <h2 class="rv text-[1.7rem] md:text-[2.2rem] font-bold tracking-[-.01em] text-stone-900" style="transition-delay:.1s">প্রতিটি ক্যাপসুলে <span class="gd-t">৮টি শক্তিশালী</span> উপাদান</h2>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="rv c3d" style="transition-delay:.05s"><div class="c3i bg-white rounded-2xl p-5 text-center border border-stone-100/60 hover:shadow-lg transition-all">
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center mx-auto mb-3 glow rounded-xl"><span class="iconify text-green-600 text-xl" data-icon="mdi:sprout"></span></div>
+      <h4 class="font-bold text-stone-800 text-[12.5px] mb-0.5">শাতাবলতা</h4><p class="text-[10.5px] text-stone-400">প্রোল্যাকটিন বুস্টার</p>
+    </div></div>
+    <div class="rv c3d" style="transition-delay:.1s"><div class="c3i bg-white rounded-2xl p-5 text-center border border-stone-100/60 hover:shadow-lg transition-all">
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-50 to-yellow-50 flex items-center justify-center mx-auto mb-3 glow rounded-xl"><span class="iconify text-amber-700 text-xl" data-icon="mdi:seed"></span></div>
+      <h4 class="font-bold text-stone-800 text-[12.5px] mb-0.5">মসুর ডাল</h4><p class="text-[10.5px] text-stone-400">প্রোটিন ও আয়রন</p>
+    </div></div>
+    <div class="rv c3d" style="transition-delay:.15s"><div class="c3i bg-white rounded-2xl p-5 text-center border border-stone-100/60 hover:shadow-lg transition-all">
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-50 to-amber-50 flex items-center justify-center mx-auto mb-3 glow rounded-xl"><span class="iconify text-orange-600 text-xl" data-icon="mdi:flower"></span></div>
+      <h4 class="font-bold text-stone-800 text-[12.5px] mb-0.5">ফেনুগ্রিক</h4><p class="text-[10.5px] text-stone-400">গ্যালাক্টোগগ</p>
+    </div></div>
+    <div class="rv c3d" style="transition-delay:.2s"><div class="c3i bg-white rounded-2xl p-5 text-center border border-stone-100/60 hover:shadow-lg transition-all">
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-50 to-pink-50 flex items-center justify-center mx-auto mb-3 glow rounded-xl"><span class="iconify text-rose-500 text-xl" data-icon="mdi:flower-tulip"></span></div>
+      <h4 class="font-bold text-stone-800 text-[12.5px] mb-0.5">অ্যাশওয়াগন্ধা</h4><p class="text-[10.5px] text-stone-400">স্ট্রেস রিলিফ</p>
+    </div></div>
+    <div class="rv c3d" style="transition-delay:.25s"><div class="c3i bg-white rounded-2xl p-5 text-center border border-stone-100/60 hover:shadow-lg transition-all">
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50 to-cyan-50 flex items-center justify-center mx-auto mb-3 glow rounded-xl"><span class="iconify text-teal-600 text-xl" data-icon="mdi:leaf"></span></div>
+      <h4 class="font-bold text-stone-800 text-[12.5px] mb-0.5">শতাবরি</h4><p class="text-[10.5px] text-stone-400">হরমোন ব্যালেন্স</p>
+    </div></div>
+    <div class="rv c3d" style="transition-delay:.3s"><div class="c3i bg-white rounded-2xl p-5 text-center border border-stone-100/60 hover:shadow-lg transition-all">
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-50 to-rose-50 flex items-center justify-center mx-auto mb-3 glow rounded-xl"><span class="iconify text-red-500 text-xl" data-icon="mdi:pill"></span></div>
+      <h4 class="font-bold text-stone-800 text-[12.5px] mb-0.5">আয়রন</h4><p class="text-[10.5px] text-stone-400">রক্ত ও দুধের গুণমান</p>
+    </div></div>
+    <div class="rv c3d" style="transition-delay:.35s"><div class="c3i bg-white rounded-2xl p-5 text-center border border-stone-100/60 hover:shadow-lg transition-all">
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-50 to-purple-50 flex items-center justify-center mx-auto mb-3 glow rounded-xl"><span class="iconify text-violet-500 text-xl" data-icon="mdi:water"></span></div>
+      <h4 class="font-bold text-stone-800 text-[12.5px] mb-0.5">ফলিক অ্যাসিড</h4><p class="text-[10.5px] text-stone-400">কোষ বিভাজন</p>
+    </div></div>
+    <div class="rv c3d" style="transition-delay:.4s"><div class="c3i bg-white rounded-2xl p-5 text-center border border-stone-100/60 hover:shadow-lg transition-all">
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-sky-50 flex items-center justify-center mx-auto mb-3 glow rounded-xl"><span class="iconify text-blue-500 text-xl" data-icon="mdi:star-four-points"></span></div>
+      <h4 class="font-bold text-stone-800 text-[12.5px] mb-0.5">ভিটামিন B12</h4><p class="text-[10.5px] text-stone-400">স্নায়ু ও দুধ উৎপাদন</p>
+    </div></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ BENEFITS ═══ -->
+<section id="benefits" class="py-16 md:py-24 bg-white relative overflow-hidden">
+<div class="absolute top-1/2 right-0 w-[400px] h-[400px] bg-n-50 rounded-full blur-[160px] opacity-30 pointer-events-none -translate-y-1/2"></div>
+<div class="max-w-[1200px] mx-auto px-5 relative z-10">
+  <div class="text-center max-w-[560px] mx-auto mb-12">
+    <span class="rv text-[10px] font-bold tracking-[.2em] uppercase text-n-600 mb-3 block">কেন মিল্কিমম</span>
+    <h2 class="rv text-[1.7rem] md:text-[2.2rem] font-bold tracking-[-.01em] text-stone-900" style="transition-delay:.1s">অন্যদের থেকে <span class="gd-t">আলাদা কেন?</span></h2>
+  </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="rv bg-cream rounded-2xl p-6 border border-stone-100/40 hover:shadow-lg transition-all" style="transition-delay:.05s">
+      <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-n-50 to-n-100 flex items-center justify-center mb-4"><span class="iconify text-n-600 text-lg" data-icon="mdi:flask-outline"></span></div>
+      <h4 class="font-bold text-stone-800 text-[14px] mb-1.5">ক্লিনিক্যালি প্রমাণিত</h4>
+      <p class="text-[12.5px] text-stone-500 leading-relaxed">১২ সপ্তাহের ক্লিনিক্যাল ট্রায়ালে ৯৪% মায়ের দুধ ২-৩ গুণ বেড়েছে। রেফারেন্সযুক্ত গবেষণা পত্র প্রকাশিত।</p>
+    </div>
+    <div class="rv bg-cream rounded-2xl p-6 border border-stone-100/40 hover:shadow-lg transition-all" style="transition-delay:.1s">
+      <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-n-50 to-n-100 flex items-center justify-center mb-4"><span class="iconify text-n-600 text-lg" data-icon="mdi:shield-lock-outline"></span></div>
+      <h4 class="font-bold text-stone-800 text-[14px] mb-1.5">শূন্য সাইড এফেক্ট</h4>
+      <p class="text-[12.5px] text-stone-500 leading-relaxed">সম্পূর্ণ হার্বাল হওয়ায় কোনো পার্শ্বপ্রতিক্রিয়া নেই। গর্ভবতী ও স্তন্যদানকারী মায়ের জন্য সম্পূর্ণ নিরাপদ।</p>
+    </div>
+    <div class="rv bg-cream rounded-2xl p-6 border border-stone-100/40 hover:shadow-lg transition-all" style="transition-delay:.15s">
+      <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-n-50 to-n-100 flex items-center justify-center mb-4"><span class="iconify text-n-600 text-lg" data-icon="mdi:clock-fast"></span></div>
+      <h4 class="font-bold text-stone-800 text-[14px] mb-1.5">৭ দিনে ফলাফল</h4>
+      <p class="text-[12.5px] text-stone-500 leading-relaxed">প্রথম সপ্তাহেই পরিবর্তন অনুভব করবেন। পুরো কোর্স শেষে স্থায়ী ফলাফল পাবেন।</p>
+    </div>
+    <div class="rv bg-cream rounded-2xl p-6 border border-stone-100/40 hover:shadow-lg transition-all" style="transition-delay:.2s">
+      <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-n-50 to-n-100 flex items-center justify-center mb-4"><span class="iconify text-n-600 text-lg" data-icon="mdi:stethoscope"></span></div>
+      <h4 class="font-bold text-stone-800 text-[14px] mb-1.5">৫০০+ ডাক্তার রেকমেন্ড</h4>
+      <p class="text-[12.5px] text-stone-500 leading-relaxed">গাইনি, প্রিডিয়াট্রিশিয়ান ও নিউট্রিশনিস্টরা রোগীদের রেকমেন্ড করেন।</p>
+    </div>
+    <div class="rv bg-cream rounded-2xl p-6 border border-stone-100/40 hover:shadow-lg transition-all" style="transition-delay:.25s">
+      <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-n-50 to-n-100 flex items-center justify-center mb-4"><span class="iconify text-n-600 text-lg" data-icon="mdi:cash-refund"></span></div>
+      <h4 class="font-bold text-stone-800 text-[14px] mb-1.5">৭ দিনের মানি-ব্যাক</h4>
+      <p class="text-[12.5px] text-stone-500 leading-relaxed">ফলাফল না পেলে সম্পূর্ণ টাকা ফেরত। কোনো প্রশ্ন নেই — আমরা আপনার বিশ্বাসের যোগ্য।</p>
+    </div>
+    <div class="rv bg-cream rounded-2xl p-6 border border-stone-100/40 hover:shadow-lg transition-all" style="transition-delay:.3s">
+      <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-n-50 to-n-100 flex items-center justify-center mb-4"><span class="iconify text-n-600 text-lg" data-icon="mdi:truck-delivery-outline"></span></div>
+      <h4 class="font-bold text-stone-800 text-[14px] mb-1.5">গোপনীয়তা প্যাকেজিং</h4>
+      <p class="text-[12.5px] text-stone-500 leading-relaxed">কোনো লেবেল বা মার্কা ছাড়া প্যাকেজিং। আপনার ব্যক্তিগত তথ্য সম্পূর্ণ গোপনীয়।</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ BEFORE/AFTER ═══ -->
+<section class="py-16 md:py-24 bg-cream">
+<div class="max-w-[1200px] mx-auto px-5">
+  <div class="text-center max-w-[560px] mx-auto mb-12">
+    <span class="rv text-[10px] font-bold tracking-[.2em] uppercase text-n-600 mb-3 block">রিয়েল রেজাল্ট</span>
+    <h2 class="rv text-[1.7rem] md:text-[2.2rem] font-bold tracking-[-.01em] text-stone-900" style="transition-delay:.1s">তারা <span class="gd-t">ফলাফল পেয়েছে</span> — আপনিও পাবেন</h2>
+  </div>
+  <div class="grid md:grid-cols-3 gap-5">
+    <div class="rv bg-white rounded-2xl p-6 border border-stone-100/60 hover:shadow-lg transition-all" style="transition-delay:.05s">
+      <div class="flex items-center gap-3 mb-4">
+        <img src="https://i.ibb.co.com/Pv40vxkw/558834868-122119167842987642-453327520897765856-n.jpg" alt="" class="w-11 h-11 rounded-full object-cover ring-2 ring-n-50"/>
+        <div><p class="text-[13px] font-semibold text-stone-800">ফাতেমা আক্তার</p><p class="text-[10px] text-stone-400">ঢাকা • নতুন মা</p></div>
+        <span class="iconify text-emerald-500 text-base ml-auto" data-icon="mdi:check-decagram"></span>
+      </div>
+      <div class="flex items-center gap-0.5 mb-3"><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span></div>
+      <p class="text-[12.5px] text-stone-600 leading-[1.8] mb-4">"প্রথম ৫ দিনেই বুঝতে পারলাম দুধ বেড়েছে। আগে আমার বাচ্চা ২ ঘণ্টা পর পর কাঁদতো, এখন সন্তুষ্ট থাকে। এটা আমার জন্য ম্যাজিক!"</p>
+      <div class="flex items-center gap-4 pt-3 border-t border-stone-100/80">
+        <div class="text-center"><p class="text-[16px] font-bold text-n-700">৫ দিনে</p><p class="text-[9px] text-stone-400">ফলাফল শুরু</p></div>
+        <div class="text-center"><p class="text-[16px] font-bold text-n-700">৩×</p><p class="text-[9px] text-stone-400">দুধ বৃদ্ধি</p></div>
+      </div>
+    </div>
+    <div class="rv bg-white rounded-2xl p-6 border border-stone-100/60 hover:shadow-lg transition-all" style="transition-delay:.1s">
+      <div class="flex items-center gap-3 mb-4">
+        <img src="https://i.ibb.co.com/Pv40vxkw/558834868-122119167842987642-453327520897765856-n.jpg" alt="" class="w-11 h-11 rounded-full object-cover ring-2 ring-n-50"/>
+        <div><p class="text-[13px] font-semibold text-stone-800">নাসরিন সুলতানা</p><p class="text-[10px] text-stone-400">চট্টগ্রাম • ২ সন্তানের মা</p></div>
+        <span class="iconify text-emerald-500 text-base ml-auto" data-icon="mdi:check-decagram"></span>
+      </div>
+      <div class="flex items-center gap-0.5 mb-3"><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span></div>
+      <p class="text-[12.5px] text-stone-600 leading-[1.8] mb-4">"দ্বিতীয় বাচ্চার সময় দুধ একদম আসছিল না। ডাক্তার মিল্কিমম দিলেন। ১০ দিনে সমস্যা পুরোপুরি ঠিক। আমার বাচ্চার ওজনও ঠিকমতো বাড়ছে।"</p>
+      <div class="flex items-center gap-4 pt-3 border-t border-stone-100/80">
+        <div class="text-center"><p class="text-[16px] font-bold text-n-700">১০ দিনে</p><p class="text-[9px] text-stone-400">সম্পূর্ণ সমাধান</p></div>
+        <div class="text-center"><p class="text-[16px] font-bold text-n-700">২.৫ কেজি</p><p class="text-[9px] text-stone-400">বাচ্চার ওজন বৃদ্ধি</p></div>
+      </div>
+    </div>
+    <div class="rv bg-white rounded-2xl p-6 border border-stone-100/60 hover:shadow-lg transition-all" style="transition-delay:.15s">
+      <div class="flex items-center gap-3 mb-4">
+        <img src="https://i.ibb.co.com/Pv40vxkw/558834868-122119167842987642-453327520897765856-n.jpg" alt="" class="w-11 h-11 rounded-full object-cover ring-2 ring-n-50"/>
+        <div><p class="text-[13px] font-semibold text-stone-800">রুমানা ইসলাম</p><p class="text-[10px] text-stone-400">সিলেট • প্রথম মা</p></div>
+        <span class="iconify text-emerald-500 text-base ml-auto" data-icon="mdi:check-decagram"></span>
+      </div>
+      <div class="flex items-center gap-0.5 mb-3"><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-xs" data-icon="mdi:star-half-full"></span></div>
+      <p class="text-[12.5px] text-stone-600 leading-[1.8] mb-4">"ফর্মুলা ফিডিং ছাড়তে চাইতাম, কিন্তু দুধ কম থাকায় পারতাম না। মিল্কিমম খাওয়ার পর এখন সম্পূর্ণ মায়ের দুধেই বাচ্চাকে পুষ্টি দিতে পারি।"</p>
+      <div class="flex items-center gap-4 pt-3 border-t border-stone-100/80">
+        <div class="text-center"><p class="text-[16px] font-bold text-n-700">১৪ দিনে</p><p class="text-[9px] text-stone-400">ফর্মুলা ফ্রি</p></div>
+        <div class="text-center"><p class="text-[16px] font-bold text-n-700">১০০%</p><p class="text-[9px] text-stone-400">প্রাকৃতিক দুধ</p></div>
+      </div>
+    </div>
+  </div>
+  <!-- Rating summary -->
+  <div class="rv mt-10 max-w-md mx-auto" style="transition-delay:.2s">
+    <div class="bg-white rounded-2xl p-6 border border-stone-100/60 text-center">
+      <p class="text-[13px] font-semibold text-stone-600 mb-3">গড় রেটিং</p>
+      <div class="flex items-center justify-center gap-1 mb-2"><span class="iconify text-amber-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-amber-400 text-lg" data-icon="mdi:star-half-full"></span><span class="text-[20px] font-bold text-stone-800 ml-2">৪.৭</span></div>
+      <p class="text-[11px] text-stone-400">৩,৮০০+ যাচাইকৃত ক্রেতার উপর ভিত্তি করে</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ ORDER SECTION ═══ -->
+<section id="order" class="py-16 md:py-24 bg-white relative overflow-hidden">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-n-50 rounded-full blur-[180px] opacity-25 pointer-events-none"></div>
+<div class="max-w-[1000px] mx-auto px-5 relative z-10">
+  <div class="text-center mb-12">
+    <span class="rv text-[10px] font-bold tracking-[.2em] uppercase text-n-600 mb-3 block">অর্ডার করুন</span>
+    <h2 class="rv text-[1.7rem] md:text-[2.2rem] font-bold tracking-[-.01em] text-stone-900" style="transition-delay:.1s">আপনার প্যাকেজ <span class="gd-t">বেছে নিন</span></h2>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-5">
+    <!-- Basic -->
+    <div class="rv bg-cream rounded-2xl p-6 border border-stone-100/60 hover:shadow-lg transition-all" style="transition-delay:.05s">
+      <p class="text-[10px] font-bold tracking-[.15em] uppercase text-stone-400 mb-2">বেসিক প্যাক</p>
+      <div class="flex items-end gap-2 mb-1"><span class="text-[28px] font-bold text-stone-800 leading-none">৳১,৪৯৯</span><span class="text-[13px] text-stone-400 line-through mb-1">৳২,৫০০</span></div>
+      <p class="text-[11px] text-stone-400 mb-5">১ কোর্স (৩০ ক্যাপসুল)</p>
+      <ul class="space-y-2.5 mb-6">
+        <li class="flex items-center gap-2 text-[12px] text-stone-600"><span class="iconify text-emerald-500 text-sm" data-icon="mdi:check-circle"></span>৩০ দিনের সাপ্লাই</li>
+        <li class="flex items-center gap-2 text-[12px] text-stone-600"><span class="iconify text-emerald-500 text-sm" data-icon="mdi:check-circle"></span>ফ্রি ডেলিভারি</li>
+        <li class="flex items-center gap-2 text-[12px] text-stone-600"><span class="iconify text-emerald-500 text-sm" data-icon="mdi:check-circle"></span>গোপন প্যাকেজিং</li>
+      </ul>
+      <a href="#" class="bg w-full text-center font-semibold py-3 rounded-xl inline-flex items-center justify-center gap-2 text-[13px]" data-h><span>এখনই নিন</span></a>
+    </div>
+    <!-- Popular -->
+    <div class="rv bg-stone-900 rounded-2xl p-6 text-white relative overflow-hidden shadow-2xl scale-[1.02] md:scale-105" style="transition-delay:.1s">
+      <div class="absolute top-0 right-0 bg-n-600 text-white text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl">সবচেয়ে জনপ্রিয়</div>
+      <p class="text-[10px] font-bold tracking-[.15em] uppercase text-n-300 mb-2">প্রিমিয়াম প্যাক</p>
+      <div class="flex items-end gap-2 mb-1"><span class="text-[28px] font-bold text-white leading-none">৳৩,৯৯৯</span><span class="text-[13px] text-stone-400 line-through mb-1">৳৭,৫০০</span></div>
+      <p class="text-[11px] text-stone-400 mb-5">৩ কোর্স (৯০ ক্যাপসুল) — ৩ মাস</p>
+      <ul class="space-y-2.5 mb-6">
+        <li class="flex items-center gap-2 text-[12px] text-stone-300"><span class="iconify text-emerald-400 text-sm" data-icon="mdi:check-circle"></span>৩ মাসের সাপ্লাই</li>
+        <li class="flex items-center gap-2 text-[12px] text-stone-300"><span class="iconify text-emerald-400 text-sm" data-icon="mdi:check-circle"></span>ফ্রি ডেলিভারি</li>
+        <li class="flex items-center gap-2 text-[12px] text-stone-300"><span class="iconify text-emerald-400 text-sm" data-icon="mdi:check-circle"></span>গোপন প্যাকেজিং</li>
+        <li class="flex items-center gap-2 text-[12px] text-n-300"><span class="iconify text-n-400 text-sm" data-icon="mdi:gift"></span>ফ্রি ডায়েট চার্ট</li>
+        <li class="flex items-center gap-2 text-[12px] text-n-300"><span class="iconify text-n-400 text-sm" data-icon="mdi:phone-in-talk"></span>ফ্রি ডাক্তার কনসালটেশন</li>
+      </ul>
+      <a href="#" class="bp w-full text-center font-semibold py-3 rounded-xl inline-flex items-center justify-center gap-2 text-[13px]" data-h>এখনই নিন <span class="iconify" data-icon="mdi:arrow-right"></span></a>
+      <p class="text-[9px] text-stone-500 text-center mt-2">৫,২০০+ মা এই প্যাক নিয়েছেন</p>
+    </div>
+    <!-- Complete -->
+    <div class="rv bg-cream rounded-2xl p-6 border border-stone-100/60 hover:shadow-lg transition-all" style="transition-delay:.15s">
+      <p class="text-[10px] font-bold tracking-[.15em] uppercase text-stone-400 mb-2">কম্প্লিট প্যাক</p>
+      <div class="flex items-end gap-2 mb-1"><span class="text-[28px] font-bold text-stone-800 leading-none">৳৬,৯৯৯</span><span class="text-[13px] text-stone-400 line-through mb-1">৳১৫,০০০</span></div>
+      <p class="text-[11px] text-stone-400 mb-1">৬ কোর্স (১৮০ ক্যাপসুল) — ৬ মাস</p>
+      <p class="text-[10px] font-bold text-n-600 mb-5">সর্বোচ্চ সাশ্রয় — ৫৩% ছাড়</p>
+      <ul class="space-y-2.5 mb-6">
+        <li class="flex items-center gap-2 text-[12px] text-stone-600"><span class="iconify text-emerald-500 text-sm" data-icon="mdi:check-circle"></span>৬ মাসের সাপ্লাই</li>
+        <li class="flex items-center gap-2 text-[12px] text-stone-600"><span class="iconify text-emerald-500 text-sm" data-icon="mdi:check-circle"></span>সব বোনাস ফ্রি</li>
+        <li class="flex items-center gap-2 text-[12px] text-stone-600"><span class="iconify text-emerald-500 text-sm" data-icon="mdi:check-circle"></span>অগ্রাধিকার সাপোর্ট</li>
+        <li class="flex items-center gap-2 text-[12px] text-n-700"><span class="iconify text-n-500 text-sm" data-icon="mdi:star"></span>ভিআইপি ফলো-আপ</li>
+      </ul>
+      <a href="#" class="bg w-full text-center font-semibold py-3 rounded-xl inline-flex items-center justify-center gap-2 text-[13px]" data-h><span>এখনই নিন</span></a>
+    </div>
+  </div>
+
+  <!-- Trust signals under pricing -->
+  <div class="rv flex flex-wrap items-center justify-center gap-5 mt-10" style="transition-delay:.2s">
+    <span class="flex items-center gap-1.5 text-[11px] text-stone-500"><span class="iconify text-emerald-500" data-icon="mdi:lock"></span>SSL সুরক্ষিত</span>
+    <span class="flex items-center gap-1.5 text-[11px] text-stone-500"><span class="iconify text-emerald-500" data-icon="mdi:truck-check"></span>ক্যাশ অন ডেলিভারি</span>
+    <span class="flex items-center gap-1.5 text-[11px] text-stone-500"><span class="iconify text-emerald-500" data-icon="mdi:cash-refund"></span>৭ দিন রিফান্ড</span>
+    <span class="flex items-center gap-1.5 text-[11px] text-stone-500"><span class="iconify text-emerald-500" data-icon="mdi:package-variant-closed"></span>গোপন প্যাকেজিং</span>
+  </div>
+</div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq" class="py-16 md:py-24 bg-cream">
+<div class="max-w-[640px] mx-auto px-5">
+  <div class="text-center mb-12">
+    <span class="rv text-[10px] font-bold tracking-[.2em] uppercase text-n-600 mb-3 block">প্রশ্ন আছে?</span>
+    <h2 class="rv text-[1.7rem] md:text-[2rem] font-bold tracking-[-.01em] text-stone-900" style="transition-delay:.1s">সচরাচর জিজ্ঞাসা</h2>
+  </div>
+  <div class="space-y-2.5">
+    <div class="rv bg-white rounded-xl border border-stone-100/60 overflow-hidden hover:shadow-sm transition-shadow" style="transition-delay:.05s">
+      <button class="ft w-full flex items-center justify-between p-4.5 text-left" data-h><span class="font-semibold text-stone-800 text-[13px] pr-4">এটা কি সত্যিই কাজ করে?</span><span class="iconify text-stone-400 text-base flex-shrink-0 fi transition-transform" data-icon="mdi:plus"></span></button>
+      <div class="fb px-4.5"><p class="text-stone-500 text-[12.5px] leading-[1.75] pb-4">হ্যাঁ! ১২ সপ্তাহের ক্লিনিক্যাল ট্রায়ালে ৯৪% অংশগ্রহণকারীর দুধ ২-৩ গুণ বেড়েছে। আমাদের ৭ দিনের মানি-ব্যাক গ্যারান্টি আছে — ফলাফল না পেলে টাকা ফেরত।</p></div>
+    </div>
+    <div class="rv bg-white rounded-xl border border-stone-100/60 overflow-hidden hover:shadow-sm transition-shadow" style="transition-delay:.1s">
+      <button class="ft w-full flex items-center justify-between p-4.5 text-left" data-h><span class="font-semibold text-stone-800 text-[13px] pr-4">কোনো সাইড এফেক্ট আছে?</span><span class="iconify text-stone-400 text-base flex-shrink-0 fi transition-transform" data-icon="mdi:plus"></span></button>
+      <div class="fb px-4.5"><p class="text-stone-500 text-[12.5px] leading-[1.75] pb-4">না। সম্পূর্ণ হার্বাল ও প্রাকৃতিক উপাদান দিয়ে তৈরি। GMP সার্টিফাইড ফ্যাক্টরিতে উৎপাদিত। গত ৬ বছরে কোনো সাইড এফেক্টের অভিযোগ নেই।</p></div>
+    </div>
+    <div class="rv bg-white rounded-xl border border-stone-100/60 overflow-hidden hover:shadow-sm transition-shadow" style="transition-delay:.15s">
+      <button class="ft w-full flex items-center justify-between p-4.5 text-left" data-h><span class="font-semibold text-stone-800 text-[13px] pr-4">কিভাবে খাব? কত দিন খাব?</span><span class="iconify text-stone-400 text-base flex-shrink-0 fi transition-transform" data-icon="mdi:plus"></span></button>
+      <div class="fb px-4.5"><p class="text-stone-500 text-[12.5px] leading-[1.75] pb-4">দিনে ১টি করে ক্যাপসুল খাবেন, ভরা পেটে। ন্যূনতম ৩০ দিন খাওয়ার রেকমেন্ডেশন। সেরা ফলাফলের জন্য ৩ কোর্স (৩ মাস) নেওয়া উচিত।</p></div>
+    </div>
+    <div class="rv bg-white rounded-xl border border-stone-100/60 overflow-hidden hover:shadow-sm transition-shadow" style="transition-delay:.2s">
+      <button class="ft w-full flex items-center justify-between p-4.5 text-left" data-h><span class="font-semibold text-stone-800 text-[13px] pr-4">পেমেন্ট কিভাবে করব?</span><span class="iconify text-stone-400 text-base flex-shrink-0 fi transition-transform" data-icon="mdi:plus"></span></button>
+      <div class="fb px-4.5"><p class="text-stone-500 text-[12.5px] leading-[1.75] pb-4">ক্যাশ অন ডেলিভারি (ডেলিভারি পাওয়ার পর পেমেন্ট), বিকাশ, নগদ, রকেট বা কার্ডে পেমেন্ট করতে পারবেন।</p></div>
+    </div>
+    <div class="rv bg-white rounded-xl border border-stone-100/60 overflow-hidden hover:shadow-sm transition-shadow" style="transition-delay:.25s">
+      <button class="ft w-full flex items-center justify-between p-4.5 text-left" data-h><span class="font-semibold text-stone-800 text-[13px] pr-4">প্যাকেজিং কি গোপন থাকবে?</span><span class="iconify text-stone-400 text-base flex-shrink-0 fi transition-transform" data-icon="mdi:plus"></span></button>
+      <div class="fb px-4.5"><p class="text-stone-500 text-[12.5px] leading-[1.75] pb-4">অবশ্যই। বাইরে কোনো প্রোডাক্টের নাম বা বিবরণ থাকবে না। সম্পূর্ণ গোপনীয়তা বজায় রাখা হয়।</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="py-16 md:py-20 bg-stone-900 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image:radial-gradient(circle at 30% 50%,rgba(169,35,69,.3),transparent 50%),radial-gradient(circle at 70% 50%,rgba(212,149,48,.2),transparent 50%)"></div>
+<div class="max-w-[600px] mx-auto px-5 text-center relative z-10">
+  <div class="rv mb-4" style="transition-delay:.05s">
+    <span class="inline-flex items-center gap-2 gld text-white/80 text-[10px] font-bold tracking-[.15em] uppercase px-3.5 py-1.5 rounded-full"><span class="w-[5px] h-[5px] bg-red-400 rounded-full" style="animation:pulse 1.5s infinite"></span>সীমিত সময়ের অফার</span>
+  </div>
+  <h2 class="rv text-[1.8rem] md:text-[2.4rem] font-bold text-white tracking-[-.01em] leading-tight mb-4" style="transition-delay:.1s">আপনার শিশু প্রতিটি ফোঁটা<br/><span class="text-gd-300">মায়ের দুধের অধিকারী</span></h2>
+  <p class="rv text-stone-400 text-[14px] leading-relaxed mb-8" style="transition-delay:.15s">আর দেরি করবেন না। প্রতিটি দিন গুরুত্বপূর্ণ। আজই শুরু করুন।</p>
+  <div class="rv flex flex-col sm:flex-row gap-3 justify-center mb-6" style="transition-delay:.2s">
+    <a href="#" class="bg-white text-stone-800 font-semibold px-8 py-4 rounded-2xl inline-flex items-center justify-center gap-2.5 text-[14px] hover:bg-cream transition-all duration-300 hover:scale-105 hover:shadow-2xl" data-h>
+      <span class="iconify text-[16px]" data-icon="mdi:cart-plus"></span>এখনই অর্ডার করুন
+    </a>
+    <a href="#" class="border border-white/20 text-white font-semibold px-8 py-4 rounded-2xl inline-flex items-center justify-center gap-2 text-[14px] hover:bg-white/10 transition-all" data-h>
+      <span class="iconify text-[16px]" data-icon="mdi:whatsapp"></span>হোয়াটসঅ্যাপে অর্ডার
+    </a>
+  </div>
+  <p class="rv text-[10px] text-stone-500" style="transition-delay:.25s">৭ দিনের মানি-ব্যাক গ্যারান্টি • গোপন প্যাকেজিং • ফ্রি ডেলিভারি</p>
+</div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="bg-stone-950 text-white pt-14 pb-7">
+<div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-n-600/30 to-transparent"></div>
+<div class="max-w-[1200px] mx-auto px-5">
+  <div class="flex flex-col md:flex-row items-center justify-between gap-4 py-7 border-b border-stone-800/80">
+    <div class="flex items-center gap-2.5">
+      <img src="https://i.ibb.co.com/Pv40vxkw/558834868-122119167842987642-453327520897765856-n.jpg" alt="" class="h-9 w-9 rounded-full object-cover ring-2 ring-n-800/30"/>
+      <div><p class="text-[13px] font-bold text-white">মিল্কিমম</p><p class="text-[8px] text-stone-500">Premium Mother Care</p></div>
+    </div>
+    <div class="flex items-center gap-5">
+      <a href="#" class="w-8 h-8 rounded-lg bg-stone-800/80 hover:bg-n-600 flex items-center justify-center transition-all text-[14px]" data-h aria-label="Facebook"><span class="iconify" data-icon="mdi:facebook"></span></a>
+      <a href="#" class="w-8 h-8 rounded-lg bg-stone-800/80 hover:bg-n-600 flex items-center justify-center transition-all text-[14px]" data-h aria-label="Instagram"><span class="iconify" data-icon="mdi:instagram"></span></a>
+      <a href="#" class="w-8 h-8 rounded-lg bg-stone-800/80 hover:bg-n-600 flex items-center justify-center transition-all text-[14px]" data-h aria-label="WhatsApp"><span class="iconify" data-icon="mdi:whatsapp"></span></a>
+      <a href="#" class="w-8 h-8 rounded-lg bg-stone-800/80 hover:bg-n-600 flex items-center justify-center transition-all text-[14px]" data-h aria-label="YouTube"><span class="iconify" data-icon="mdi:youtube"></span></a>
+    </div>
+  </div>
+  <div class="flex flex-col md:flex-row items-center justify-between gap-3 pt-7">
+    <p class="text-[10px] text-stone-600">© ২০২৪ মিল্কিমম। সর্বস্বত্ব সংরক্ষিত।</p>
+    <div class="flex items-center gap-4">
+      <a href="#" class="text-[10px] text-stone-600 hover:text-stone-400 transition-colors">গোপনীয়তা নীতি</a>
+      <a href="#" class="text-[10px] text-stone-600 hover:text-stone-400 transition-colors">সেবার শর্তাবলী</a>
+      <a href="#" class="text-[10px] text-stone-600 hover:text-stone-400 transition-colors">রিটার্ন পলিসি</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<!-- Sticky CTA -->
+<div id="stk" class="fixed bottom-0 left-0 right-0 z-50 p-3 gl border-t border-stone-200/50 lg:hidden">
+  <a href="#order" class="bp w-full text-center font-semibold py-3 rounded-xl inline-flex items-center justify-center gap-2 text-[13px]" data-h>
+    <span class="iconify text-[15px]" data-icon="mdi:cart-plus"></span>অর্ডার করুন — ৪০% ছাড়!
+  </a>
+</div>
+
+<!-- Toast -->
+<div class="tst fixed bottom-20 lg:bottom-5 right-5 z-[70] gld text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 max-w-xs" id="toast">
+  <span class="iconify text-emerald-400 text-lg" data-icon="mdi:check-circle"></span>
+  <span class="text-[12px]" id="tMsg">সফল!</span>
+</div>
+
+<script>
+// Preloader
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('pre').classList.add('gone'),1200));
+
+// Cursor
+const cD=document.getElementById('cD'),cR=document.getElementById('cR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cD.style.left=mx+'px';cD.style.top=my+'px'});
+!function lp(){rx+=(mx-rx)*.14;ry+=(my-ry)*.14;cR.style.left=rx+'px';cR.style.top=ry+'px';requestAnimationFrame(lp)}();
+document.querySelectorAll('[data-h],a,button').forEach(el=>{el.addEventListener('mouseenter',()=>cR.classList.add('h'));el.addEventListener('mouseleave',()=>cR.classList.remove('h'))});
+
+// Canvas particles
+const cv=document.getElementById('hCv'),cx=cv.getContext('2d');let ps=[];
+function rC(){const s=cv.parentElement;cv.width=s.offsetWidth;cv.height=s.offsetHeight}
+rC();window.addEventListener('resize',rC);
+class P{constructor(){this.rs()}rs(){this.x=Math.random()*cv.width;this.y=Math.random()*cv.height;this.r=Math.random()*1.5+.4;this.vx=(Math.random()-.5)*.2;this.vy=(Math.random()-.5)*.2;this.o=Math.random()*.15+.02}up(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>cv.width||this.y<0||this.y>cv.height)this.rs()}dr(){cx.beginPath();cx.arc(this.x,this.y,this.r,0,Math.PI*2);cx.fillStyle=`rgba(169,35,69,${this.o})`;cx.fill()}}
+for(let i=0;i<35;i++)ps.push(new P);
+!function aP(){cx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{p.up();p.dr()});for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++){const dx=ps[i].x-ps[j].x,dy=ps[i].y-ps[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<90){cx.beginPath();cx.moveTo(ps[i].x,ps[i].y);cx.lineTo(ps[j].x,ps[j].y);cx.strokeStyle=`rgba(169,35,69,${.025*(1-d/90)})`;cx.lineWidth=.4;cx.stroke()}}requestAnimationFrame(aP)}();
+
+// 3D cards
+document.querySelectorAll('.c3d').forEach(c=>{const i=c.querySelector('.c3i');if(!i)return;c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;i.style.transform=`rotateY(${x*8}deg) rotateX(${-y*8}deg) translateZ(5px)`});c.addEventListener('mouseleave',()=>{i.style.transform='none'})});
+
+// Hero 3D
+const hI=document.getElementById('hImg');
+if(hI)document.addEventListener('mousemove',e=>{const a=(e.clientX/innerWidth-.5)*2,b=(e.clientY/innerHeight-.5)*2;hI.style.transform=`rotateY(${a*3}deg) rotateX(${-b*2.5}deg)`});
+
+// Scroll reveal
+const rO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');rO.unobserve(e.target)}})},{threshold:.05,rootMargin:'0px 0px -15px 0px'});
+document.querySelectorAll('.rv,.rvl,.rvr,.rvs,.imgrv').forEach(el=>rO.observe(el));
+
+// FAQ
+document.querySelectorAll('.ft').forEach(t=>{t.onclick=()=>{const it=t.closest('.faq-item,.bg-white'),b=it.querySelector('.fb'),ic=t.querySelector('.fi'),op=b.classList.contains('op');document.querySelectorAll('.fb').forEach(a=>a.classList.remove('op'));document.querySelectorAll('.fi').forEach(i=>{i.setAttribute('data-icon','mdi:plus');i.style.transform=''});if(!op){b.classList.add('op');ic.setAttribute('data-icon','mdi:minus');ic.style.transform='rotate(180deg)'}}});
+
+// Mobile menu
+const mM=document.getElementById('mobM');
+document.getElementById('mobO').onclick=()=>{mM.classList.add('op');document.body.style.overflow='hidden'};
+function cM(){mM.classList.remove('op');document.body.style.overflow=''}
+document.getElementById('mobC').onclick=cM;
+document.querySelectorAll('.ml').forEach(l=>l.onclick=cM);
+
+// Toast
+function toast(m){const t=document.getElementById('toast');document.getElementById('tMsg').textContent=m;t.classList.add('sh');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('sh'),3000)}
+
+// Button ripple
+document.querySelectorAll('.bp').forEach(b=>{b.addEventListener('click',function(e){const r=this.getBoundingClientRect(),rp=document.createElement('span');rp.classList.add('rpl');const sz=Math.max(r.width,r.height);rp.style.width=rp.style.height=sz+'px';rp.style.left=e.clientX-r.left-sz/2+'px';rp.style.top=e.clientY-r.top-sz/2+'px';this.appendChild(rp);setTimeout(()=>rp.remove(),550)})});
+
+// Nav shadow
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.style.boxShadow=scrollY>20?'0 2px 20px rgba(0,0,0,.04)':'none'});
+
+// Sticky CTA
+const sC=document.getElementById('stk');
+window.addEventListener('scroll',()=>{sC.classList.toggle('sh',scrollY>500)});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+</script>
+</body>
+</html>
